@@ -12,13 +12,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-12 col-md-6 order-md-1 order-last">
-                        <h3>Galeri Nawasena</h3>
+                        <h3>Sewa Mobile</h3>
                     </div>
                     <div class="col-12 col-md-6 order-md-2 order-first">
                         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Galeri</li>
+                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Sewa Mobile</li>
                             </ol>
                         </nav>
                     </div>
@@ -31,57 +31,52 @@
                             <i class="bi bi-plus"></i>
                             Tambah data
                         </button>
-                        <table class="table table-striped" id="table1">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Harga</th>
-                                    <th>Include Driver</th>
-                                    <th>Excellent Service</th>
-                                    <th>Include Fuel</th>
-                                    <th>Include Toll</th>
-                                    <th>Catatan</th>
-                                    <th>Gambar</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            @foreach ($rent as $car)
-                                <tbody>
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="table1">
+                                <thead>
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $car->name }}</td>
-                                        <td>Rp {{ number_format($car->price) }}</td>
-                                        <td><i
-                                                class="fa {{ $car->include_driver ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                        </td>
-                                        <td><i
-                                                class="fa {{ $car->excellent_service ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                        </td>
-                                        <td><i
-                                                class="fa {{ $car->include_fuel ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                        </td>
-                                        <td><i
-                                                class="fa {{ $car->include_toll ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                        </td>
-                                        <td>{{ $car->note }}</td>
-                                        <td> <img src="{{ asset('storage/' . $car->picture) }}" alt="picture_nawasena"
-                                                style="width: 100px;"> </td>
-                                        <td>
-                                            <button type="button" class="btn btn-warning mb-2" data-bs-toggle="modal"
-                                                data-bs-target="#backdrop1{{$car->id}}">
-                                                <i class="bi bi-pen"></i>
-                                            </button>
-                                            <form action="" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
-                                            </form>
-                                        </td>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Harga</th>
+                                        <th>Include Driver</th>
+                                        <th>Excellent Service</th>
+                                        <th>Include Fuel</th>
+                                        <th>Include Toll</th>
+                                        <th>Catatan</th>
+                                        <th>Gambar</th>
+                                        <th>Aksi</th>
                                     </tr>
-                                </tbody>
-                            @endforeach
-                        </table>
+                                </thead>
+                                @foreach ($rent as $car)
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $car->name }}</td>
+                                            <td>Rp {{ number_format($car->price) }}</td>
+                                            <td><i class="fa {{ $car->include_driver ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i></td>
+                                            <td><i class="fa {{ $car->excellent_service ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i></td>
+                                            <td><i class="fa {{ $car->include_fuel ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i></td>
+                                            <td><i class="fa {{ $car->include_toll ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i></td>
+                                            <td>{{ $car->note }}</td>
+                                            <td>
+                                                <img src="{{ asset('storage/' . $car->picture) }}" alt="picture_nawasena" style="width: 100px;">
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-warning mb-2" data-bs-toggle="modal" data-bs-target="#backdrop1{{$car->id}}">
+                                                    <i class="bi bi-pen"></i>
+                                                </button>
+                                                <form action="" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                @endforeach
+                            </table>
+                        </div>
+                        
                     </div>
                 </div>
 

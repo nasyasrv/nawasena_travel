@@ -27,6 +27,7 @@
         <section class="section">
             <div class="card">
                 <div class="card-body">
+                    <div class="table-responsive">
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
@@ -55,6 +56,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
 
