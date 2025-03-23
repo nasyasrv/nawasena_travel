@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\landing;
-use App\Models\rent_car;
+
 use App\Models\review;
 use App\Models\galery;
+use App\Models\rentCar;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -17,7 +18,7 @@ class LandingController extends Controller
     {
         $review = review::all();
         $galery = galery::all();
-        $rent = rent_car::latest()->take(12)->get();
+        $rent = rentCar::latest()->take(3)->get();
 
         return view('landing.nawasena', compact('review','galery','rent'));
     }
