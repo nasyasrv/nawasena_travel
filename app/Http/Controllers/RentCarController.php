@@ -2,7 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RentCarCreateRequest;
-use App\Models\Rent_Car;
+
+use App\Models\rentCar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -10,7 +11,7 @@ class RentCarController extends Controller
 {
     public function index()
     {
-        $rent = Rent_Car::all();
+        $rent = rentCar::all();
         return view('admin.rent' ,compact('rent'));
     }
 
@@ -28,7 +29,7 @@ class RentCarController extends Controller
                 $validatedData['picture'] = $request->file('picture')->store('car', 'public');
             }
 
-            Rent_Car::create($validatedData);
+            rentCar::create($validatedData);
 
             return back()->with('success', 'Kendaraan berhasil ditambahkan.');
         } catch (\Throwable $th) {
@@ -37,7 +38,7 @@ class RentCarController extends Controller
     }
 
 
-    public function destroy(Rent_Car $Rent_Car)
+    public function destroy(rentCar $Rent_Car)
     {
         try {
             if ($Rent_Car->picture) {

@@ -185,9 +185,9 @@
     <section class="destinations py-5" id="travel">
         <div class="container py-md-5">
             <h3 class="heading text-center mb-3 mb-sm-5">Sewa Mobil</h3>
-            <div class="row inner-sec-w3layouts-w3pvt-lauinfo">
+            <div class="car-container">
                 @foreach ($rent as $car)
-                    <div class="card">
+                    <div class="card w-100">
                         <img src="{{ asset('storage/' . $car->picture) }}" alt="Deskripsi Gambar" class="card-image">
                         <div class="card-description">
                             <h5>{{ $car->name }}</h5>
@@ -218,9 +218,12 @@
                 @endforeach
 
             </div>
-            <a type="button" class="rent" style="margin-top: 2rem;margin-left: 30.5rem;"
+            <div class="d-flex w-100 justify-content-center align-items-center">
+
+                <a type="button" class="rent mt-3" style=""
                 href="{{ route('sewa') }}">Lihat
                 Lainnya</a>
+            </div>  
         </div>
     </section>
     <!-- destinations -->
@@ -304,7 +307,7 @@
                         <a href="/about_us" class="read-more btn">Baca Lebih Banyak</a>
                     </div>
                 </div>
-                <div class="col-lg-6 about-img  mt-md-4 mt-sm-4">
+                <div class="col-lg-6 about-img">
                     <img src="{{ asset('landing/images/nred.png') }}" class="img-fluid about-pic" alt="">
                 </div>
             </div>
@@ -315,9 +318,8 @@
         <div class="container py-md-5">
             <h3 class="heading heading1 text-center mb-3 mb-sm-5">Kenapa Memilih Kami?</h3>
             <div class="row align-items-center mt-4">
-                <div class="col-lg-6 mt-md-4 mt-sm-4">
-                    <img src="{{ asset('landing/images/owner1.jpg') }}" class="img-fluid rounded" alt="Layanan Kami"
-                        style="    width: 30rem;margin-top: -60px;">
+                <div class="col-lg-6 mt-md-4 mt-sm-4 canvas-banner-img">
+                    <img src="{{ asset('landing/images/owner1.jpg') }}" class="banner-img img-fluid rounded" alt="Layanan Kami">
                 </div>
                 <div class="col-lg-6 mt-4 mt-lg-0">
                     <div class="feature-cards">
@@ -422,11 +424,11 @@
     <section class="testimonials1 py-5">
         <div class="container py-md-5">
             <h3 class="heading heading1 text-center mb-3 mb-sm-5">Fasilitas Kami</h3>
-            <div class="row align-items-center mt-4">
+            <div class="canvas-services align-items-center mt-4">
                 <!-- Top row with 4 cards -->
-                <div class="col-md-3">
-                    <div class="card-2 mb-4 p-3 shadow-sm text-center">
-                        <i class="fa fa-car fa-2x mb-3"></i> <!-- Icon Mobil Sehat -->
+                <div class="w-100">
+                    <div class="card-2 h-fit mb-4 p-3 shadow-sm text-center">
+                        <i class="fa fa-car fa-2x mb-3 mt-4"></i> <!-- Icon Mobil Sehat -->
                         <div class="d-flex align-items-center mb-2">
                             <h4>Mobil Sehat</h4>
                         </div>
@@ -436,9 +438,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card-2 mb-4 p-3 shadow-sm text-center">
-                        <i class="fa fa-broom fa-2x mb-3"></i> <!-- Icon Mobil Bersih -->
+                <div class="w-100">
+                    <div class="card-2 h-fit mb-4 p-3 shadow-sm text-center">
+                        <i class="fa fa-broom fa-2x mb-3 mt-4"></i> <!-- Icon Mobil Bersih -->
                         <div class="d-flex align-items-center mb-2">
                             <h4>Mobil Bersih</h4>
                         </div>
@@ -448,9 +450,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card-2 mb-4 p-3 shadow-sm text-center">
-                        <i class="fa fa-smile-beam fa-2x mb-3"></i> <!-- Icon Mobil Wangi -->
+                <div class="w-100">
+                    <div class="card-2 h-fit mb-4 p-3 shadow-sm text-center">
+                        <i class="fa fa-smile-beam fa-2x mb-3 mt-4"></i> <!-- Icon Mobil Wangi -->
                         <div class="d-flex align-items-center mb-2">
                             <h4>Mobil Wangi</h4>
                         </div>
@@ -459,9 +461,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card-2 mb-4 p-3 shadow-sm text-center">
-                        <i class="fa fa-shield-alt fa-2x mb-3"></i> <!-- Icon Mobil Aman-Nyaman -->
+                <div class="w-100">
+                    <div class="card-2 h-fit mb-4 p-3 shadow-sm text-center">
+                        <i class="fa fa-shield-alt fa-2x mb-3 mt-4"></i> <!-- Icon Mobil Aman-Nyaman -->
                         <div class="d-flex align-items-center mb-2">
                             <h4>Mobil Aman-Nyaman</h4>
                         </div>
@@ -472,10 +474,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center mt-4">
+            <div class="mt-4 grid-service-2">
                 <!-- Bottom row with 3 cards -->
-                <div class="col-md-4">
-                    <div class="card-3 mb-4 p-3 shadow-sm text-center">
+                <div class="w-100">
+                    <div class="card-3 card-service-2 mb-4 p-3 shadow-sm text-center">
                         <i class="fa fa-handshake fa-2x mb-3"></i> <!-- Icon Driver Ramah -->
                         <div class="d-flex align-items-center mb-2">
                             <h4>Driver Ramah</h4>
@@ -486,8 +488,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card-3 mb-4 p-3 shadow-sm text-center">
+                <div class="w-100">
+                    <div class="card-3 card-service-2 mb-4 p-3 shadow-sm text-center">
                         <i class="fa fa-user-tie fa-2x mb-3"></i> <!-- Icon Driver Pengalaman -->
                         <div class="d-flex align-items-center mb-2">
                             <h4>Driver Pengalaman</h4>
@@ -498,8 +500,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card-3 mb-4 p-3 shadow-sm text-center">
+                <div class="w-100">
+                    <div class="card-3 card-service-2 mb-4 p-3 shadow-sm text-center">
                         <i class="fa fa-briefcase fa-2x mb-3"></i> <!-- Icon Driver Profesional -->
                         <div class="d-flex align-items-center mb-2">
                             <h4>Driver Profesional</h4>
