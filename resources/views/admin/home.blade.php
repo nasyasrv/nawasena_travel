@@ -74,7 +74,7 @@
                                     <h4>Profile Visit</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div id="visitorChart"></div>
+                                    <div id="chart"></div>
                                 </div>
                             </div>
                         </div>
@@ -128,8 +128,12 @@
             </div>
         </footer>
     </div>
+    {{-- @dd($labels) --}}
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            var labels = @json($labels);
+            var data = @json($data);
+
             var options = {
                 chart: {
                     type: "line",
@@ -143,9 +147,6 @@
                 },
                 tooltip: {
                     shared: false,
-                    x: {
-                        show: false // Menghilangkan label bulan di tooltip saat hover
-                    },
                     y: {
                         formatter: function (value, { seriesIndex, dataPointIndex, w }) {
                             let total = w.globals.series.reduce((sum, series) => sum + series[dataPointIndex], 0);
@@ -155,20 +156,16 @@
                 },
                 series: [
                     {
-                        name: "Product A",
-                        data: [10, 20, 30, 40, 50, 50],
-                    },
-                    {
-                        name: "Product B",
-                        data: [15, 25, 35, 45, 55, 50]
+                        name: "Total Visits",
+                        data: data
                     }
                 ],
                 xaxis: {
-                    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+                    categories: labels,
                     tooltip: { enabled: false }
                 },
                 grid: {
-                    xaxis: { lines: { show: false } } // Menghilangkan garis vertikal pada hover
+                    xaxis: { lines: { show: false } }
                 }
             };
 

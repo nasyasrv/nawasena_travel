@@ -16,11 +16,29 @@ class LogVisitor
      */
     public function handle(Request $request, Closure $next): Response
     {
-        visitor::created([
-            'ip_address'=> $request->ip(),
-            'user_agent'=> $request->header('User-Agent'),
-            'url'=>$request->fullUrl(),
-        ]);
+        $ip = $request->ip();
+        $userAgent = $request->userAgent();
+        $today = now()->toDateString();
+
+        // Find user's visit record
+        $visit = visitor::where([
+            'ip_address' => $ip,
+            'user_agent' => $userAgent
+        ])->first();
+
+        if ($visit) {
+            // If last visit is not today, update the visit date
+            if ($visit->visit_date !== $today) {
+                $visit->update(['visit_date' => $today, 'count' => $visit->count + 1]);
+            }
+        } else {
+            // Otherwise, create a new record
+            visitor::create([
+                'ip_address' => $ip,
+                'user_agent' => $userAgent,
+                'visit_date' => $today
+            ]);
+        }
         return $next($request);
     }
 }
