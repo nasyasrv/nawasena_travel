@@ -16,13 +16,13 @@
                         <div class="card flex-fill">
                             <div class="card-body">
                                 <h5 class="card-title">Total Mobil</h5>
-                                <p class="card-text">64</p>
+                                <p class="card-text">{{$allCar}}</p>
                             </div>
                         </div>
                         <div class="card flex-fill">
                             <div class="card-body">
                                 <h5 class="card-title">Total Komentar</h5>
-                                <p class="card-text">14</p>
+                                <p class="card-text">{{$allReview}}</p>
                             </div>
                         </div>
                     </div>
@@ -53,9 +53,12 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            var labels = @json($labels);
+            var data = @json($data);
+
             var options = {
                 chart: {
-                    type: "line",
+                    type: "bar",
                     toolbar: { show: false }
                 },
                 stroke: {
@@ -66,9 +69,6 @@
                 },
                 tooltip: {
                     shared: false,
-                    x: {
-                        show: false // Menghilangkan label bulan di tooltip saat hover
-                    },
                     y: {
                         formatter: function (value, { seriesIndex, dataPointIndex, w }) {
                             let total = w.globals.series.reduce((sum, series) => sum + series[dataPointIndex], 0);
@@ -78,20 +78,16 @@
                 },
                 series: [
                     {
-                        name: "Product A",
-                        data: [10, 20, 30, 40, 50, 50],
-                    },
-                    {
-                        name: "Product B",
-                        data: [15, 25, 35, 45, 55, 50]
+                        name: "Total Visits",
+                        data: data
                     }
                 ],
                 xaxis: {
-                    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+                    categories: labels,
                     tooltip: { enabled: false }
                 },
                 grid: {
-                    xaxis: { lines: { show: false } } // Menghilangkan garis vertikal pada hover
+                    xaxis: { lines: { show: false } }
                 }
             };
 
