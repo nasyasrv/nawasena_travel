@@ -1684,6 +1684,7 @@ a.move-top span{
   .footer-top-inner-vv {
     padding: 1em 0;
 }
+}
 
 p.copy-right-grids {
     font-size: 15px;
@@ -2165,3 +2166,11 @@ button.next {
     height: 100%;
     border: 0;
   }
+
+  #chart-container {
+    overflow-x: auto;
+    width: 100%;
+}
+#chart {
+    min-width: 100%;
+}
