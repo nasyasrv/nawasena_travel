@@ -88,7 +88,7 @@
 </style>
 
 <header>
-    <div class="container">
+    <div class="container container-header">
         <!-- nav -->
         <nav class="navbar navbar-expand-xl navbar-dark bg-dark py-3">
             <div class="container-fluid">
@@ -98,9 +98,11 @@
                 </a>
 
                 <!-- Toggle Button for Mobile/Tablet -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <div class="header-burger">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
 
                 <!-- Navbar Links (Collapsed on Mobile) -->
                 <div class="collapse navbar-collapse" id="navbarNav">

@@ -4,15 +4,14 @@
     <!-- stats -->
     <section class="stats">
         <div class="layer py-md-5 py-5">
-            <div class="container py-lg-5 py-md-3">
-                <div class="row stat-grids">
-                    <div class="col-lg-6 stats-left">
-                        <h3 class="heading mb-4 text-li">Beri Kami komentar!</h3>
-                        <p class="mb-3">Kami menghargai pendapat Anda! Silakan tinggalkan komentar Anda untuk membantu
-                            kami meningkatkan layanan.</p>
+            <div class="container py-lg-5 py-md-3 margin-top">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h3 class="heading mb-3 text-li">Beri Kami Komentar!</h3>
+                        <p class="mb-0">Kami menghargai pendapat Anda! Silakan tinggalkan komentar Anda untuk membantu kami meningkatkan layanan.</p>
                     </div>
-                    <div class="col-lg-6 grid1 stats-right mt-lg-0 mt-4 pl-5">
-                        <form action="{{ route('review.store') }}" method="POST" enctype="multipart/form-data">
+                    <div class="col-lg-6">
+                        <form action="{{ route('review.store') }}" method="POST" enctype="multipart/form-data" class="p-4 bg-dark rounded">
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label text-white">Nama Kamu</label>
@@ -34,9 +33,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="comment" class="form-label text-white">Komentar</label>
-                                <textarea id="comment" type="text" rows="4"
-                                          class="form-control @error('comment') is-invalid @enderror"
-                                          name="comment" oninput="updateCharacterCount()"></textarea>
+                                <textarea id="comment" rows="4" class="form-control @error('comment') is-invalid @enderror" name="comment" oninput="updateCharacterCount()"></textarea>
                                 @error('comment')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -44,10 +41,9 @@
                                 @enderror
                                 <small id="charCount" class="form-text text-white">0 karakter</small>
                             </div>
-                            <button type="submit" class="btn btn-danger">Submit</button>
+                            <button type="submit" class="btn btn-danger w-100">Submit</button>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>
