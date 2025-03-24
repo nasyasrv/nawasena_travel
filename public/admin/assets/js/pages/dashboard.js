@@ -1,34 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    fetch("/visitor-chart-data")
-        .then(response => response.json())
-        .then(data => {
-            console.log("Data dari API:", data); 
-
-            let visitorCounts = Object.values(data); 
-            let months = Object.keys(data); 
-
-            var optionsProfileVisit = {
-                chart: {
-                    type: 'bar',
-                    height: 300
-                },
-                series: [{
-                    name: 'Pengunjung',
-                    data: visitorCounts
-                }],
-                colors: ['#435ebe'],
-                xaxis: {
-                    categories: months 
-                }
-            };
-
-            var chart = new ApexCharts(document.querySelector("#visitorChart"), optionsProfileVisit);
-            chart.render();
-        })
-        .catch(error => console.error("Error fetching data:", error));
-});
-
-
 
 
 let optionsVisitorsProfile  = {
