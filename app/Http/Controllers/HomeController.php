@@ -52,12 +52,13 @@ class HomeController extends Controller
          // Ambil data review
          $review = review::latest()->take(2)->get();
          $review_count = review::count();
-
+        //  dd($visits);
          return view('admin.home', [
              'labels' => $months,
              'data' => $data,
              'review' => $review,
-             'review_count' => $review_count
+             'review_count' => $review_count,
+             'visits' => $visits->sum('total_visits')
          ]);
      }
 
