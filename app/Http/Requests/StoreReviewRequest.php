@@ -24,7 +24,7 @@ class StoreReviewRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required',
-            'comment' => 'required|string|min:150|max:250',
+            'comment' => 'required|string|max:250',
         ];
     }
 
@@ -34,7 +34,6 @@ class StoreReviewRequest extends FormRequest
             'name.required' => 'Nama kamu harus tertera ya!',
             'email.required' => 'Email harus diisi ya!',
             'comment.required' => 'Komentar harus tertera!',
-            'comment.min' => 'komentar minimal 150 karakter',
             'comment.max' => 'komentar maksimal 250 karakter',
         ];
     }

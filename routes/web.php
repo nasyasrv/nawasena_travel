@@ -17,6 +17,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\LandingController::class,'index']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/sewa_mobil', [App\Http\Controllers\car::class, 'index'])->name('sewa');
+Route::get('/visitor-chart-data', [App\Http\Controllers\VisitorController::class, 'ChartData']);
 route::resource('review', ReviewController::class);
 route::resource('galery', GaleryController::class);
 route::resource('rent', RentCarController::class);

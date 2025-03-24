@@ -223,7 +223,7 @@
                 <a type="button" class="rent mt-3" style=""
                 href="{{ route('sewa') }}">Lihat
                 Lainnya</a>
-            </div>  
+            </div>
         </div>
     </section>
     <!-- destinations -->

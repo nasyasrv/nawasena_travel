@@ -1,28 +1,36 @@
-var optionsProfileVisit = {
-	annotations: {
-		position: 'back'
-	},
-	dataLabels: {
-		enabled:false
-	},
-	chart: {
-		type: 'bar',
-		height: 300
-	},
-	fill: {
-		opacity:1
-	},
-	plotOptions: {
-	},
-	series: [{
-		name: 'sales',
-		data: [9,20,30,20,10,20,30,20,10,20,30,20]
-	}],
-	colors: '#435ebe',
-	xaxis: {
-		categories: ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug","Sep","Oct","Nov","Dec"],
-	},
-}
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("/visitor-chart-data")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Data dari API:", data); 
+
+            let visitorCounts = Object.values(data); 
+            let months = Object.keys(data); 
+
+            var optionsProfileVisit = {
+                chart: {
+                    type: 'bar',
+                    height: 300
+                },
+                series: [{
+                    name: 'Pengunjung',
+                    data: visitorCounts
+                }],
+                colors: ['#435ebe'],
+                xaxis: {
+                    categories: months 
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#visitorChart"), optionsProfileVisit);
+            chart.render();
+        })
+        .catch(error => console.error("Error fetching data:", error));
+});
+
+
+
+
 let optionsVisitorsProfile  = {
 	series: [70, 30],
 	labels: ['Male', 'Female'],
