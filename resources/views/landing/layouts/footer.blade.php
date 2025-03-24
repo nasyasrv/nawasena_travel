@@ -112,7 +112,7 @@
                      </ul>
                  </div>
              </div>
-             <div class="col-lg-3 col-sm-6 mt-lg-0 mt-4">
+             <div class="col-lg-3 col-sm-6 mt-lg-0 mt-4 footer-map">
                  <div class="footer-lavi">
                      <div class="map p-2">
                          <iframe
@@ -120,8 +120,6 @@
                              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                              referrerpolicy="no-referrer-when-downgrade">
                          </iframe>
-
-
                      </div>
                  </div>
              </div>

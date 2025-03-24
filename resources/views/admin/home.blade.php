@@ -6,7 +6,6 @@
                 <i class="bi bi-justify fs-3"></i>
             </a>
         </header>
-
         <div class="page-heading">
             <h3>Profile Statistics</h3>
         </div>
@@ -129,4 +128,52 @@
             </div>
         </footer>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var options = {
+                chart: {
+                    type: "line",
+                    toolbar: { show: false }
+                },
+                stroke: {
+                    curve: "smooth"
+                },
+                markers: {
+                    size: 2
+                },
+                tooltip: {
+                    shared: false,
+                    x: {
+                        show: false // Menghilangkan label bulan di tooltip saat hover
+                    },
+                    y: {
+                        formatter: function (value, { seriesIndex, dataPointIndex, w }) {
+                            let total = w.globals.series.reduce((sum, series) => sum + series[dataPointIndex], 0);
+                            return `Value: ${value} <br> Total: ${total}`;
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: "Product A",
+                        data: [10, 20, 30, 40, 50, 50],
+                    },
+                    {
+                        name: "Product B",
+                        data: [15, 25, 35, 45, 55, 50]
+                    }
+                ],
+                xaxis: {
+                    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+                    tooltip: { enabled: false }
+                },
+                grid: {
+                    xaxis: { lines: { show: false } } // Menghilangkan garis vertikal pada hover
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        });
+    </script>
 @endsection

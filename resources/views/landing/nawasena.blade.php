@@ -502,7 +502,7 @@
                 </div>
                 <div class="w-100">
                     <div class="card-3 card-service-2 mb-4 p-3 shadow-sm text-center">
-                        <i class="fa fa-briefcase fa-2x mb-3"></i> <!-- Icon Driver Profesional -->
+                        <i class="fa fa-briefcase fa-2x mb-3 m-icon"></i> <!-- Icon Driver Profesional -->
                         <div class="d-flex align-items-center mb-2">
                             <h4>Driver Profesional</h4>
                         </div>
