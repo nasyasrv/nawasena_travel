@@ -31,7 +31,7 @@ class HomeController extends Controller
          // Ambil data kunjungan berdasarkan bulan
          $visits = visitor::select(
                  DB::raw("DATE_FORMAT(visit_date, '%Y-%m') as month"),
-                 DB::raw('COUNT(*) as total_visits')
+                 DB::raw("SUM(count) as total_visits")
              )
              ->groupBy('month')
              ->orderBy('month')
