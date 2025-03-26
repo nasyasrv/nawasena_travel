@@ -1962,7 +1962,7 @@ h4.title-hny2 {
     .car-container {
         grid-template-columns: 1fr; /* Stack items in a single column on smaller screens */
     }
-    .card{
+    .card-1{
         width: 100% !important;
     }
 }

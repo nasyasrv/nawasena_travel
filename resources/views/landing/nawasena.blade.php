@@ -188,7 +188,7 @@
             <div class="car-container">
                 @foreach ($rent as $car)
                     @if ($car->count() == 1)
-                    <div class="card">
+                    <div class="card card-1">
                         <img src="{{ asset('storage/' . $car->picture) }}" alt="Deskripsi Gambar" class="card-image">
                         <div class="card-description">
                             <h5>{{ $car->name }}</h5>
