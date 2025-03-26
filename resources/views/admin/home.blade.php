@@ -165,9 +165,6 @@
                 xaxis: {
                     categories: labels,
                     tooltip: { enabled: false },
-                    labels: {
-                    rotate: window.innerWidth < 400 ? -50 : 0
-                }
                 },
                 grid: {
                     xaxis: { lines: { show: false } }
