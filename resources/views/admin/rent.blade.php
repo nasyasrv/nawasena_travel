@@ -65,7 +65,7 @@
                                                 <button type="button" class="btn btn-warning mb-2" data-bs-toggle="modal" data-bs-target="#backdrop1{{$car->id}}">
                                                     <i class="bi bi-pen"></i>
                                                 </button>
-                                                <form action="" method="POST">
+                                                <form action="{{route('rent.destroy',$car->id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger"><i class="bi bi-trash"></i></button>

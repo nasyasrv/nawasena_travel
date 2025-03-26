@@ -95,7 +95,14 @@ body img {
     max-width: 100%;
 }
 
-
+@media screen and (max-width: 400px) {
+    .card-body {
+        overflow-x: auto; /* Mencegah elemen terpotong */
+    }
+    #chart {
+        width: 100% !important;
+    }
+}
   @media (max-width: 768px) {
     .container-header {
       width: 100% !important;
@@ -1955,6 +1962,9 @@ h4.title-hny2 {
     .car-container {
         grid-template-columns: 1fr; /* Stack items in a single column on smaller screens */
     }
+    .card{
+        width: 100% !important;
+    }
 }
 .card {
     background-color: #ffffff;
@@ -1963,7 +1973,7 @@ h4.title-hny2 {
     /* Membuat sudut membulat */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     /* Efek bayangan */
-    width: 269px;
+    width: 500px;
     /* Lebar kotak */
     overflow: hidden;
     /* Memastikan gambar tidak keluar dari kotak */

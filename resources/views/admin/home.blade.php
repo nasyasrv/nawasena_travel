@@ -137,7 +137,9 @@
             var options = {
                 chart: {
                     type: "line",
-                    toolbar: { show: false }
+                    toolbar: { show: false },
+                    height: 280,
+                    // width: window.innerWidth < 400 ? "100%" : 500
                 },
                 stroke: {
                     curve: "smooth"
@@ -162,7 +164,10 @@
                 ],
                 xaxis: {
                     categories: labels,
-                    tooltip: { enabled: false }
+                    tooltip: { enabled: false },
+                    labels: {
+                    rotate: window.innerWidth < 400 ? -50 : 0
+                }
                 },
                 grid: {
                     xaxis: { lines: { show: false } }

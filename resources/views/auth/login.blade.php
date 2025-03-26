@@ -17,7 +17,7 @@
     <div class="col-lg-5 col-12">
         <div id="auth-left">
             <div class="auth-logo">
-                <a href="/"> <img src="{{ asset('landing/images/nawa.png') }}" class="img-" alt="" style="width: 199px;height: 45px;margin-top: -37px;margin-left: -78px;"></a>
+                <a href="/"> <img src="{{ asset('landing/images/nawa.png') }}" class="img-" alt="" style="width: 199px;height:45px"></a>
             </div>
             <h1 class="auth-title">Halo, Admin!</h1>
             <p class="auth-subtitle mb-4">Silahkan Login jika anda adalah Admin kami!</p>

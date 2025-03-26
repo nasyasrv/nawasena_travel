@@ -38,8 +38,9 @@ class RentCarController extends Controller
     }
 
 
-    public function destroy(rentCar $Rent_Car)
+    public function destroy(rentCar $Rent_Car, $id)
     {
+        $Rent_Car = rentCar::findOrFail($id);
         try {
             if ($Rent_Car->picture) {
                 Storage::disk('public')->delete($Rent_Car->picture);
