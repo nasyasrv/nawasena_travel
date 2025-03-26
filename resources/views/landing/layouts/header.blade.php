@@ -91,10 +91,10 @@
     <div class="container container-header">
         <!-- nav -->
         <nav class="navbar navbar-expand-xl navbar-dark bg-dark py-3">
-            <div class="container-fluid">
+            <div class="container-fluid d-flex align-items-center">
                 <!-- Logo -->
-                <a class="navbar-brand" href="/">
-                    <img src="{{ asset('landing/images/nawa.png') }}" class="img-" alt="" style="width: 212px; margin-top: -4px; margin-left: 12px; padding: 3px;">
+                <a class="navbar-brand navbar-brand-header" href="/">
+                    <img src="{{ asset('landing/images/nawa.png') }}" class="img-header" alt="">
                 </a>
 
                 <!-- Toggle Button for Mobile/Tablet -->

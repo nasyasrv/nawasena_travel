@@ -111,14 +111,22 @@ body img {
 }
 @media (max-width: 769px) {
     .header-burger{
-    display: flex !important;
+        display: flex !important;
         justify-content: center !important;
-        width: 100% !important;
-        margin-top: 10px !important;
+        width: fit-content !important;
+        align-items: center !important;
     }
     .margin-top{
         margin-top: 10rem !important;
     }
+    .img-header{
+        width: 160px;
+        max-width: 160px;
+        margin-top: -4px; margin-left: 12px; padding: 3px;
+    }
+}
+.img-header{
+    width: 212px; margin-top: -4px; margin-left: 12px; padding: 3px;
 }
 .margin-top{
     margin-top: 4rem;
@@ -2173,4 +2181,12 @@ button.next {
 }
 #chart {
     min-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand-header {
+      display: flex;
+      justify-content: center;
+      width: fit-content !important;
+    }
 }
