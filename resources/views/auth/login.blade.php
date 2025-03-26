@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login - Mazer Admin Dashboard</title>
+        <title>Login Admin Nawasena</title>
         <link rel="stylesheet" href="{{asset('admin/assets/css/main/app.css')}}">
         <link rel="stylesheet" href="{{asset('admin/assets/css/pages/auth.css')}}">
-        <link rel="shortcut icon" href="{{asset('admin/assets/images/logo/favicon.svg')}}" type="image/x-icon">
-        <link rel="shortcut icon" href="{{asset('admin/assets/images/logo/favicon.png')}}" type="image/png">
+        <link rel="shortcut icon" href="{{asset('landing/images/Nicon.png') }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{asset('landing/images/Nicon.png') }}" type="image/png">
     </head>
 
 <body>
@@ -22,7 +22,7 @@
             <h1 class="auth-title">Halo, Admin!</h1>
             <p class="auth-subtitle mb-4">Silahkan Login jika anda adalah Admin kami!</p>
 
-            <form action="{{route('login')}}" method="POST">
+            <form action="{{route('login')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group position-relative has-icon-left mb-4">
                     <input type="text" name="name" class="form-control form-control-xl @error('username') is-invalid @enderror" placeholder="Username">
