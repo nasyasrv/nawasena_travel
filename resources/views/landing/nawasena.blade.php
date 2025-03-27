@@ -320,7 +320,7 @@
                 <div class="col-lg-6 about-info1">
                     <div class="row">
                         <h4 class="title-hny md-5 mx-3" style="color:#FF0000;"> <strong>NAWASENA</strong></h4>
-                        <h5 class="title-hny md-5 mt-3 "> <strong>TRANSPORTATION SERVICE</strong></h5>
+                        <h5 class="title-hny second-hny md-5 mb-3 mx-3"> <strong>TRANSPORTATION SERVICE</strong></h5>
                     </div>
                     <p class="text-justify">
                         Kami adalah usaha jasa professional yang akan mempermudah mobilisasi anda dalam segala urusan.

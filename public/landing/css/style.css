@@ -714,6 +714,24 @@ h4.title-hny {
     line-height: 1.5em;
 }
 
+.second-hny{
+    margin-top: 1rem !important;
+    margin-left: 0px !important;
+}
+@media (max-width: 538px) {
+    .second-hny{
+        margin-top: 0px !important;
+        margin-left: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+}
+@media (min-width: 539px)and (max-width: 569px){
+    .second-hny{
+        margin-top: 0.8rem !important;
+    }
+}
+
+
 .sub-tittle-vjm {
     display: block;
     font-size: 0.7em;
@@ -770,6 +788,7 @@ h4.title-hny {
         align-items: center;
         gap: 20px;
 }
+
 .card-2{
     height: fit-content !important;
 }
