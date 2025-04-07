@@ -187,79 +187,82 @@
             <h3 class="heading text-center mb-3 mb-sm-5">Sewa Mobil</h3>
             <div class="car-container">
                 @foreach ($rent as $car)
-                    <div class="card">
-                        <img src="{{ asset('storage/' . $car->picture) }}" alt="Deskripsi Gambar" class="card-image">
-                        <div class="card-description">
-                            <h3>{{ $car->name }}</h3>
-                            <h5>Rp {{ number_format($car->price) }}</h5>
-                            <p class="mt-3">
-                                <i class="fa fa-check-circle text-success"></i> {{$car->seat}} Seat <br>
-                                <i
-                                    class="fa {{ $car->car_driver ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                Mobil & Driver <br>
-                                <i
-                                    class="fa {{ $car->vvip_service ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                VVIP Service <br>
-                                <i
-                                    class="fa {{ $car->flexible ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                Tujuan Fleksibel <br>
-                                <i
-                                    class="fa {{ $car->private_luxuryclass ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                Private & Luxury Class <br>
-                                <i class="fa fa-check-circle text-success"></i> {{$car->day_service}} Day Service <br>
-                                <i
-                                    class="fa {{ $car->hotel_travelticket ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                Hotel & Travel Ticket <br>
-                                <i
-                                    class="fa {{ $car->bbm_toll_park_crossing ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                BBM, Toll, Parkir, Penyebran <br>
-                            </p>
-                            <p style="margin-top: 10px;color: red;font-size: 14px;">
-                                *Notes :
-                                {!! nl2br(e($car->note)) !!}*
-                            </p>
+                    @if ($car->count() == 1)
+                        <div class="card card1">
+                            <img src="{{ asset('storage/' . $car->picture) }}" alt="Deskripsi Gambar" class="card-image">
+                            <div class="card-description">
+                                <h3>{{ $car->name }}</h3>
+                                <h5>Rp {{ number_format($car->price) }}</h5>
+                                <p class="mt-3">
+                                    <i class="fa fa-check-circle text-success"></i> {{ $car->seat }} Seat <br>
+                                    <i
+                                        class="fa {{ $car->car_driver ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    Mobil & Driver <br>
+                                    <i
+                                        class="fa {{ $car->vvip_service ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    VVIP Service <br>
+                                    <i
+                                        class="fa {{ $car->flexible ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    Tujuan Fleksibel <br>
+                                    <i
+                                        class="fa {{ $car->private_luxuryclass ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    Private & Luxury Class <br>
+                                    <i class="fa fa-check-circle text-success"></i> {{ $car->day_service }} Day Service
+                                    <br>
+                                    <i
+                                        class="fa {{ $car->hotel_travelticket ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    Hotel & Travel Ticket <br>
+                                    <i
+                                        class="fa {{ $car->bbm_toll_park_crossing ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    BBM, Toll, Parkir, Penyebran <br>
+                                </p>
+                                <p style="margin-top: 10px;color: red;font-size: 14px;">
+                                    *Notes :
+                                    {!! nl2br(e($car->note)) !!}*
+                                </p>
+                            </div>
+                            <div class="button-container">
+                                <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A" class="rent">Sewa Sekarang</a>
+                            </div>
                         </div>
-                        <div class="button-container">
-                            <a href="https://wa.me/+6282245958540" class="rent">Sewa Sekarang</a>
-                        </div>
-                    </div>
                     @else
-                    <div class="card w-100">
-                        <img src="{{ asset('storage/' . $car->picture) }}" alt="Deskripsi Gambar" class="card-image">
-                        <div class="card-description">
-                            <h3>{{ $car->name }}</h3>
-                            <h5>Rp {{ number_format($car->price) }}</h5>
-                            <p class="mt-3">
-                                <i class="fa fa-check-circle text-success"></i> {{$car->seat}} Seat <br>
-                                <i
-                                    class="fa {{ $car->car_driver ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                Mobil & Driver <br>
-                                <i
-                                    class="fa {{ $car->vvip_service ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                VVIP Service <br>
-                                <i
-                                    class="fa {{ $car->flexible ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                Tujuan Fleksibel <br>
-                                <i
-                                    class="fa {{ $car->private_luxuryclass ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                Private & Luxury Class <br>
-                                <i class="fa fa-check-circle text-success"></i> {{$car->day_service}} Day Service <br>
-                                <i
-                                    class="fa {{ $car->hotel_travelticket ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                Hotel & Travel Ticket <br>
-                                <i
-                                    class="fa {{ $car->bbm_toll_park_crossing ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
-                                BBM, Toll, Parkir, Penyebran <br>
-                            </p>
-                            <p style="margin-top: 10px;color: red;font-size: 14px;">
-                                *Notes :
-                                {!! nl2br(e($car->note)) !!}*
-                            </p>
+                        <div class="card w-100">
+                            <img src="{{ asset('storage/' . $car->picture) }}" alt="Deskripsi Gambar" class="card-image">
+                            <div class="card-description">
+                                <h3>{{ $car->name }}</h3>
+                                <h5>Rp {{ number_format($car->price) }}</h5>
+                                <p class="mt-3">
+                                    <i class="fa fa-check-circle text-success"></i> {{ $car->seat }} Seat <br>
+                                    <i
+                                        class="fa {{ $car->car_driver ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    Mobil & Driver <br>
+                                    <i
+                                        class="fa {{ $car->vvip_service ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    VVIP Service <br>
+                                    <i
+                                        class="fa {{ $car->flexible ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    Tujuan Fleksibel <br>
+                                    <i
+                                        class="fa {{ $car->private_luxuryclass ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    Private & Luxury Class <br>
+                                    <i class="fa fa-check-circle text-success"></i> {{ $car->day_service }} Day Service
+                                    <br>
+                                    <i
+                                        class="fa {{ $car->hotel_travelticket ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    Hotel & Travel Ticket <br>
+                                    <i
+                                        class="fa {{ $car->bbm_toll_park_crossing ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                    BBM, Toll, Parkir, Penyebran <br>
+                                </p>
+                                <p style="margin-top: 10px;color: red;font-size: 14px;">
+                                    *Notes :
+                                    {!! nl2br(e($car->note)) !!}*
+                                </p>
+                            </div>
+                            <div class="button-container">
+                                <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A" class="rent">Sewa Sekarang</a>
+                            </div>
                         </div>
-                        <div class="button-container">
-                            <a href="https://wa.me/+6282245958540" class="rent">Sewa Sekarang</a>
-                        </div>
-                    </div>
                     @endif
                 @endforeach
             </div>
@@ -267,9 +270,8 @@
 
             <div class="d-flex w-100 justify-content-center align-items-center">
 
-                <a type="button" class="rent mt-3" style=""
-                href="{{ route('sewa') }}">Lihat
-                Lainnya</a>
+                <a type="button" class="rent mt-3" style="" href="{{ route('sewa') }}">Lihat
+                    Lainnya</a>
             </div>
         </div>
     </section>
@@ -286,7 +288,7 @@
                     <div class="destinations-info">
                         <div class="caption mb-lg-3">
                             <h4>Yogyakarta</h4>
-                            <a href="https://wa.me/+6282245958540">Pesan Sekarang</a>
+                            <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -298,7 +300,7 @@
                     <div class="destinations-info">
                         <div class="caption mb-lg-3">
                             <h4>Malang</h4>
-                            <a href="https://wa.me/+6282245958540">Pesan Sekarang</a>
+                            <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -310,7 +312,7 @@
                     <div class="destinations-info">
                         <div class="caption mb-lg-3">
                             <h4>Banyuwangi</h4>
-                            <a href="https://wa.me/+6282245958540">Pesan Sekarang</a>
+                            <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -322,7 +324,7 @@
                     <div class="destinations-info">
                         <div class="caption mb-lg-3">
                             <h4>Bali</h4>
-                            <a href="https://wa.me/+6282245958540">Pesan Sekarang</a>
+                            <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -366,7 +368,8 @@
             <h3 class="heading heading1 text-center mb-3 mb-sm-5">Kenapa Memilih Kami?</h3>
             <div class="row align-items-center mt-4">
                 <div class="col-lg-6 mt-md-4 mt-sm-4 canvas-banner-img">
-                    <img src="{{ asset('landing/images/owner1.jpg') }}" class="banner-img img-fluid rounded" alt="Layanan Kami">
+                    <img src="{{ asset('landing/images/owner1.jpg') }}" class="banner-img img-fluid rounded"
+                        alt="Layanan Kami">
                 </div>
                 <div class="col-lg-6 mt-4 mt-lg-0">
                     <div class="feature-cards">
