@@ -18,7 +18,7 @@ class LandingController extends Controller
     {
         $review = review::all();
         $galery = galery::all();
-        $rent = rentCar::latest()->take(3)->get();
+        $rent = rentCar::latest()->take(8)->get();
 
         return view('landing.nawasena', compact('review','galery','rent'));
     }
