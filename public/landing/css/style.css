@@ -1963,7 +1963,7 @@ h4.title-hny2 {
 }
 
 .card {
-    flex: 1 1 calc(25% - 20px); /* 4 card per baris dengan gap */
+    flex: 1 1 calc(30% - 20px); /* 4 card per baris dengan gap */
     box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 8px;
