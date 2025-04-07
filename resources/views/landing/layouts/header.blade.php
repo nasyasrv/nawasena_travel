@@ -1,6 +1,10 @@
 <style>
     /* Mengubah flex direction menjadi row pada layar di bawah 1000px */
     @media (max-width: 1200px) {
+        .navbar{
+            position: fixed;
+        }
+
         .navbar-nav {
             flex-direction: row !important;
             justify-content: space-between;
@@ -18,6 +22,11 @@
     }
 
     @media (max-width: 1000px) {
+
+        .navbar{
+            position: fixed;
+        }
+
         .navbar-nav {
             flex-direction: row !important;
             justify-content: space-between;
@@ -34,7 +43,45 @@
         }
     }
 
+    @media (min-width: 1000px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        background-color: #333;
+        padding: 10px 20px;
+    }
+
+    .navbar-nav {
+        flex-direction: row !important;
+        justify-content: space-between;
+        width: 100% !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 0;
+    }
+
+    nav ul {
+        margin-left: 0px !important;
+    }
+
+
+    body {
+        padding-top: 80px;
+    }
+}
+
+
     @media (min-width: 1201px) {
+
+        .navbar{
+            position: fixed;
+        }
         .nav-link, .nav-item {
             width: 100% !important;
             margin-bottom: 0; /* Menghilangkan jarak vertical antara item */
@@ -67,6 +114,11 @@
 
     /* Untuk tampilan mobile, posisi navbar ditengah secara vertikal dan horizontal */
     @media (max-width: 768px) {
+        .navbar{
+            position: fixed;
+            width:100%;
+        }
+
         .navbar-nav {
             flex-direction: column !important; /* Pastikan tetap vertikal */
             justify-content: center; /* Posisi tengah secara horizontal */

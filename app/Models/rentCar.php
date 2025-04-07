@@ -13,8 +13,8 @@ class rentCar extends Model
     ];
 
     protected $fillable = [
-        'name', 'picture', 'price', 'include_driver',
-        'excellent_service', 'include_fuel', 'include_toll', 'note'
+        'name', 'picture', 'price', 'seat', 'car_driver','vvip_service','flexible',
+        'private_luxuryclass', 'day_service', 'hotel_travelticket', 'bbm_toll_park_crossing','note',
     ];
 
 }

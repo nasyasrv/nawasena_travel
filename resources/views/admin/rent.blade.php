@@ -38,10 +38,14 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Harga</th>
-                                        <th>Include Driver</th>
-                                        <th>Excellent Service</th>
-                                        <th>Include Fuel</th>
-                                        <th>Include Toll</th>
+                                        <th>Seat</th>
+                                        <th>Mobil + Driver</th>
+                                        <th>VVIP Service</th>
+                                        <th>Tujuan Fleksibel</th>
+                                        <th>Private & Luxury Class</th>
+                                        <th>Day Service</th>
+                                        <th>Hotel, Tiket Wisata</th>
+                                        <th>BBM, Toll, Parkir, Penyebrangan</th>
                                         <th>Catatan</th>
                                         <th>Gambar</th>
                                         <th>Aksi</th>
@@ -53,19 +57,37 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $car->name }}</td>
                                             <td>Rp {{ number_format($car->price) }}</td>
-                                            <td><i class="fa {{ $car->include_driver ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i></td>
-                                            <td><i class="fa {{ $car->excellent_service ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i></td>
-                                            <td><i class="fa {{ $car->include_fuel ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i></td>
-                                            <td><i class="fa {{ $car->include_toll ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i></td>
+                                            <td>{{ $car->seat }}</td>
+                                            <td><i
+                                                    class="fa {{ $car->car_driver ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                            </td>
+                                            <td><i
+                                                    class="fa {{ $car->vvip_service ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                            </td>
+                                            <td><i
+                                                class="fa {{ $car->flexible ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                            </td>
+                                            <td><i
+                                                    class="fa {{ $car->private_luxuryclass ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                            </td>
+                                            <td>{{ $car->day_service }}</td>
+                                            <td><i
+                                                    class="fa {{ $car->hotel_travelticket ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                            </td>
+                                            <td><i
+                                                    class="fa {{ $car->bbm_toll_park_crossing ? 'fa-check-circle text-success' : 'fa-times-circle text-danger' }}"></i>
+                                            </td>
                                             <td>{{ $car->note }}</td>
                                             <td>
-                                                <img src="{{ asset('storage/' . $car->picture) }}" alt="picture_nawasena" style="width: 100px;">
+                                                <img src="{{ asset('storage/' . $car->picture) }}" alt="picture_nawasena"
+                                                    style="width: 100px;">
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-warning mb-2" data-bs-toggle="modal" data-bs-target="#backdrop1{{$car->id}}">
+                                                <button type="button" class="btn btn-warning mb-2" data-bs-toggle="modal"
+                                                    data-bs-target="#backdrop1{{ $car->id }}">
                                                     <i class="bi bi-pen"></i>
                                                 </button>
-                                                <form action="{{route('rent.destroy',$car->id)}}" method="POST">
+                                                <form action="{{ route('rent.destroy', $car->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
@@ -127,66 +149,108 @@
                         <div class="mb-3">
                             <label for="price">Harga</label>
                             <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
-                                name="price">
+                                name="price" placeholder="gunakan format lengkap seperti 10000">
                             @error('price')
                                 <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
 
                         <div class="mb-3">
-                            <label for="include_driver">Include Driver?</label>
-                            <select name="include_driver"
-                                class="form-control @error('include_driver') is-invalid @enderror">
-                                <option value="" selected disabled>Pilih</option>
-                                <option value="1">Ya</option>
-                                <option value="0">Tidak</option>
-                            </select>
-                            @error('include_driver')
+                            <label for="seat">Seat</label>
+                            <input type="number" class="form-control @error('seat') is-invalid @enderror" id="price"
+                                name="seat" placeholder="pilih jumlah tempat duduk minimal 1">
+                            @error('seat')
                                 <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
 
                         <div class="mb-3">
-                            <label for="excellent_service">Apakah layanannya bagus?</label>
-                            <select name="excellent_service"
-                                class="form-control @error('excellent_service') is-invalid @enderror">
+                            <label for="car_driver">Mobil + Driver</label>
+                            <select name="car_driver" class="form-control @error('car_driver') is-invalid @enderror">
                                 <option value="" selected disabled>Pilih</option>
                                 <option value="1">Ya</option>
                                 <option value="0">Tidak</option>
                             </select>
-                            @error('excellent_service')
+                            @error('car_driver')
                                 <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
 
                         <div class="mb-3">
-                            <label for="include_fuel">Termasuk Bahan Bakar?</label>
-                            <select name="include_fuel" class="form-control @error('include_fuel') is-invalid @enderror">
+                            <label for="vvip_service">VVIP Service</label>
+                            <select name="vvip_service" class="form-control @error('vvip_service') is-invalid @enderror">
                                 <option value="" selected disabled>Pilih</option>
                                 <option value="1">Ya</option>
                                 <option value="0">Tidak</option>
                             </select>
-                            @error('include_fuel')
+                            @error('vvip_service')
                                 <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
 
                         <div class="mb-3">
-                            <label for="include_toll">Termasuk Biaya Tol?</label>
-                            <select name="include_toll" class="form-control @error('include_toll') is-invalid @enderror">
+                            <label for="flexible">Tujuan Fleksibel</label>
+                            <select name="flexible" class="form-control @error('flexible') is-invalid @enderror">
                                 <option value="" selected disabled>Pilih</option>
                                 <option value="1">Ya</option>
                                 <option value="0">Tidak</option>
                             </select>
-                            @error('include_toll')
+                            @error('flexible')
+                                <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="private_luxuryclass">Private & Luxury Class</label>
+                            <select name="private_luxuryclass"
+                                class="form-control @error('private_luxuryclass') is-invalid @enderror">
+                                <option value="" selected disabled>Pilih</option>
+                                <option value="1">Ya</option>
+                                <option value="0">Tidak</option>
+                            </select>
+                            @error('private_luxuryclass')
+                                <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="day_service">Day Service</label>
+                            <input type="number" class="form-control @error('day_service') is-invalid @enderror" id="price"
+                                name="day_service" placeholder="pilih jumlah hari minimal 1">
+                            @error('day_service')
+                                <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="hotel_travelticket">Hotel & Tiket Wisata</label>
+                            <select name="hotel_travelticket"
+                                class="form-control @error('hotel_travelticket') is-invalid @enderror">
+                                <option value="" selected disabled>Pilih</option>
+                                <option value="1">Ya</option>
+                                <option value="0">Tidak</option>
+                            </select>
+                            @error('hotel_travelticket')
+                                <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="bbm_toll_park_crossing">BBM, Toll, Parkir, Penyebrangan</label>
+                            <select name="bbm_toll_park_crossing"
+                                class="form-control @error('bbm_toll_park_crossing') is-invalid @enderror">
+                                <option value="" selected disabled>Pilih</option>
+                                <option value="1">Ya</option>
+                                <option value="0">Tidak</option>
+                            </select>
+                            @error('bbm_toll_park_crossing')
                                 <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
 
                         <div class="mb-3">
                             <label for="note">Catatan</label>
-                            <input type="text" class="form-control @error('note') is-invalid @enderror" id="note"
-                                name="note">
+                            <textarea class="form-control @error('note') is-invalid @enderror" id="note" name="note">{{ old('note') }}</textarea>
                             @error('note')
                                 <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                             @enderror
@@ -202,8 +266,8 @@
     </div>
 
     @foreach ($rent as $data)
-        <div class="modal fade text-left" id="backdrop1{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4"
-            data-bs-backdrop="false" aria-hidden="true">
+        <div class="modal fade text-left" id="backdrop1{{ $data->id }}" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel4" data-bs-backdrop="false" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -213,42 +277,51 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('rent.update', $data->id)}}" method="POST" enctype="multipart/form-data">
+                            @method('PUT')
                             @csrf
                             <div class="mb-3">
-                                <label for="basicInput">Nama Kendaraan </label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                    id="basicInput" name="name" value="{{$data->name}}">
+                                <label for="name">Nama Kendaraan</label>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                                    name="name" value="{{$data->name}}">
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
+
                             <div class="mb-3">
-                                <label for="picture">Gambar</label><br>
+                                <label for="picture">Gambar</label>
                                 <img src="{{ asset('storage/' . $data->picture) }}" width="350px" alt="picture">
-                                <input type="file" class="form-control mt-2 @error('picture') is-invalid @enderror" id="picture"
+                                <input type="file" class="form-control @error('picture') is-invalid @enderror" id="picture"
                                     name="picture">
                                 @error('picture')
                                     <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
+
                             <div class="mb-3">
-                                <label for="formFile" class="form-label">Harga</label>
-                                <input class="form-control @error('price') is-invalid @enderror" type="text"
-                                    id="formFile" name="price" value="{{$data->price}}">
+                                <label for="price">Harga</label>
+                                <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
+                                    name="price" value="{{ $data->price }}" placeholder="gunakan format lengkap seperti 10000">
                                 @error('price')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
+
                             <div class="mb-3">
-                                <label for="formFile" class="form-label">Apakah Include dengan Dirver?</label>
-                                <select name="include_driver" class="form-control">
-                                    <option selected disabled value="{{$data->include_driver}}">
-                                        @if ($data->include_driver == 1)
+                                <label for="seat">Seat</label>
+                                <input type="number" class="form-control @error('seat') is-invalid @enderror" id="price"
+                                    name="seat" value="{{ $data->seat }}" placeholder="pilih jumlah tempat duduk minimal 1">
+                                @error('seat')
+                                    <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="car_driver">Mobil + Driver</label>
+                                <select name="car_driver" class="form-control @error('car_driver') is-invalid @enderror">
+                                    <option value="{{ $data->car_driver }}" selected disabled>
+                                        @if($data->car_driver === 1)
                                             Ya
                                         @else
                                             Tidak
@@ -257,17 +330,16 @@
                                     <option value="1">Ya</option>
                                     <option value="0">Tidak</option>
                                 </select>
-                                @error('include_driver')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                @error('car_driver')
+                                    <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
+
                             <div class="mb-3">
-                                <label for="formFile" class="form-label">Apakah Pelayanannya bagus?</label>
-                                <select name="excellent_service" class="form-control">
-                                    <option selected disabled value="{{$data->excellent_service}}">
-                                        @if ($data->excellent_service == 1)
+                                <label for="vvip_service">VVIP Service</label>
+                                <select name="vvip_service" class="form-control @error('vvip_service') is-invalid @enderror">
+                                    <option value="{{ $data->vvip_service }}" selected disabled>
+                                        @if ($data->vvip_service === 1)
                                             Ya
                                         @else
                                             Tidak
@@ -276,17 +348,16 @@
                                     <option value="1">Ya</option>
                                     <option value="0">Tidak</option>
                                 </select>
-                                @error('excellent_service')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                @error('vvip_service')
+                                    <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
+
                             <div class="mb-3">
-                                <label for="formFile" class="form-label">Apakah termasuk biaya bahan bakar?</label>
-                                <select name="include_fuel" class="form-control">
-                                    <option selected disabled value="{{$data->include_fuel}}">
-                                        @if ($data->include_fuel == 1)
+                                <label for="flexible">Tujuan Fleksibel</label>
+                                <select name="flexible" class="form-control @error('flexible') is-invalid @enderror">
+                                    <option value="{{ $data->flexible }}" selected disabled>
+                                        @if($data->flexible === 1)
                                             Ya
                                         @else
                                             Tidak
@@ -295,17 +366,17 @@
                                     <option value="1">Ya</option>
                                     <option value="0">Tidak</option>
                                 </select>
-                                @error('include_fuel')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                @error('flexible')
+                                    <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
+
                             <div class="mb-3">
-                                <label for="formFile" class="form-label">Apakah termasuk biaya toll?</label>
-                                <select name="include_toll" class="form-control">
-                                    <option selected disabled value="{{$data->include_toll}}">
-                                        @if ($data->include_toll == 1)
+                                <label for="private_luxuryclass">Private & Luxury Class</label>
+                                <select name="private_luxuryclass"
+                                    class="form-control @error('private_luxuryclass') is-invalid @enderror">
+                                    <option value="{{ $data->private_luxuryclass }}" selected disabled>
+                                        @if($data->private_luxuryclass === 1)
                                             Ya
                                         @else
                                             Tidak
@@ -314,22 +385,66 @@
                                     <option value="1">Ya</option>
                                     <option value="0">Tidak</option>
                                 </select>
-                                @error('include_toll')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                @error('private_luxuryclass')
+                                    <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
+
                             <div class="mb-3">
-                                <label for="basicInput">Catatan</label>
-                                <input type="text" class="form-control @error('note') is-invalid @enderror"
-                                    id="basicInput" name="note" value="{{$data->note}}">
+                                <label for="day_service">Day Service</label>
+                                <input type="number" class="form-control @error('day_service') is-invalid @enderror" id="price"
+                                    name="day_service" value="{{$data->day_service}}" placeholder="pilih jumlah hari minimal 1">
+                                @error('day_service')
+                                    <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="hotel_travelticket">Hotel & Tiket Wisata</label>
+                                <select name="hotel_travelticket"
+                                    class="form-control @error('hotel_travelticket') is-invalid @enderror">
+                                    <option value="{{$data->hotel_travelticket}}" selected disabled>
+                                        @if($data->hotel_travelticket === 1)
+                                            Ya
+                                        @else
+                                            Tidak
+                                        @endif
+                                    </option>
+                                    <option value="1">Ya</option>
+                                    <option value="0">Tidak</option>
+                                </select>
+                                @error('hotel_travelticket')
+                                    <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="bbm_toll_park_crossing">BBM, Toll, Parkir, Penyebrangan</label>
+                                <select name="bbm_toll_park_crossing"
+                                    class="form-control @error('bbm_toll_park_crossing') is-invalid @enderror">
+                                    <option value="{{ $data->bbm_toll_park_crossing }}" selected disabled>
+                                        @if($data->bbm_toll_park_crossing === 1)
+                                            Ya
+                                        @else
+                                            Tidak
+                                        @endif
+                                    </option>
+                                    <option value="1">Ya</option>
+                                    <option value="0">Tidak</option>
+                                </select>
+                                @error('bbm_toll_park_crossing')
+                                    <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="note">Catatan</label>
+                                <textarea class="form-control @error('note') is-invalid @enderror" id="note" name="note">{{ $data->note }}</textarea>
                                 @error('note')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
+
                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                 <i class="bx bx-x d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block">Close</span>

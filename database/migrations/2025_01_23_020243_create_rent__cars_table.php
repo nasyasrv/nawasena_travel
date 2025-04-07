@@ -11,16 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rent_cars', function (Blueprint $table) { // Perbaiki nama tabel
+        Schema::create('rent_cars', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('picture');
-            $table->unsignedInteger('price'); // Harga tidak boleh negatif
-            $table->boolean('include_driver')->default(false);
-            $table->boolean('excellent_service')->default(false);
-            $table->boolean('include_fuel')->default(false);
-            $table->boolean('include_toll')->default(false);
-            $table->text('note')->nullable(); // Ubah ke TEXT dan buat nullable
+            $table->unsignedInteger('price');
+            $table->integer('seat');
+            $table->boolean('car_driver')->default(false);
+            $table->boolean('vvip_service')->default(false);
+            $table->boolean('flexible')->default(false);
+            $table->boolean('private_luxuryclass')->default(false);
+            $table->integer('day_service');
+            $table->boolean('hotel_travelticket')->default(false);
+            $table->boolean('bbm_toll_park_crossing')->default(false);
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rent_cars'); // Sesuaikan dengan nama tabel yang benar
+        Schema::dropIfExists('rent_cars');
     }
 };
