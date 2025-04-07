@@ -187,8 +187,7 @@
             <h3 class="heading text-center mb-3 mb-sm-5">Sewa Mobil</h3>
             <div class="car-container">
                 @foreach ($rent as $car)
-                    @if ($car->count() == 1)
-                    <div class="card card-1">
+                    <div class="card">
                         <img src="{{ asset('storage/' . $car->picture) }}" alt="Deskripsi Gambar" class="card-image">
                         <div class="card-description">
                             <h3>{{ $car->name }}</h3>
@@ -263,8 +262,9 @@
                     </div>
                     @endif
                 @endforeach
-
             </div>
+
+
             <div class="d-flex w-100 justify-content-center align-items-center">
 
                 <a type="button" class="rent mt-3" style=""
