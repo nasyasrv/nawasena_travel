@@ -715,22 +715,16 @@ h4.title-hny {
 }
 
 .second-hny{
-    margin-top: 1rem !important;
-    margin-left: 0px !important;
-}
-@media (max-width: 538px) {
-    .second-hny{
-        margin-top: 0px !important;
-        margin-left: 1rem !important;
-        margin-bottom: 1rem !important;
-    }
-}
-@media (min-width: 539px)and (max-width: 569px){
-    .second-hny{
-        margin-top: 0.8rem !important;
-    }
+    margin-top: 0px !important;
+    margin-left: 1rem !important;
+    margin-bottom: 1rem !important;
 }
 
+@media (min-width: 769px)  and (max-width: 991px) {
+    .second-hny{
+    margin-left: 0rem !important;
+    margin-top: 1rem !important;
+}
 
 .sub-tittle-vjm {
     display: block;
