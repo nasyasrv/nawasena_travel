@@ -143,6 +143,43 @@
 
 
         /* Continue for additional specific item sizes as needed */
+        .container {
+            max-width: 1200px;
+        }
+
+        .slider-container {
+            overflow: hidden;
+            padding: 0 30px;
+            /* biar tidak terpotong arrow */
+            position: relative;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 8px 12px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+        }
+
+        .arrow.left {
+            left: 0;
+        }
+
+        .arrow.right {
+            right: 0;
+        }
 
         /* Continue for additional specific item sizes as needed */
     </style>
@@ -222,7 +259,8 @@
                                 </p>
                             </div>
                             <div class="button-container">
-                                <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A" class="rent">Sewa Sekarang</a>
+                                <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A"
+                                    class="rent">Sewa Sekarang</a>
                             </div>
                         </div>
                     @else
@@ -260,7 +298,8 @@
                                 </p>
                             </div>
                             <div class="button-container">
-                                <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A" class="rent">Sewa Sekarang</a>
+                                <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A"
+                                    class="rent">Sewa Sekarang</a>
                             </div>
                         </div>
                     @endif
@@ -288,7 +327,9 @@
                     <div class="destinations-info">
                         <div class="caption mb-lg-3">
                             <h4>Yogyakarta</h4>
-                            <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan Sekarang</a>
+                            <a
+                                href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan
+                                Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -300,7 +341,9 @@
                     <div class="destinations-info">
                         <div class="caption mb-lg-3">
                             <h4>Malang</h4>
-                            <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan Sekarang</a>
+                            <a
+                                href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan
+                                Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -312,7 +355,9 @@
                     <div class="destinations-info">
                         <div class="caption mb-lg-3">
                             <h4>Banyuwangi</h4>
-                            <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan Sekarang</a>
+                            <a
+                                href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan
+                                Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -324,7 +369,9 @@
                     <div class="destinations-info">
                         <div class="caption mb-lg-3">
                             <h4>Bali</h4>
-                            <a href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan Sekarang</a>
+                            <a
+                                href="https://wa.me/6282245958540?text=Hallo%20Nawasena%20Transportation%0A%0ASaya%20berminat%20untuk%20menyewa%20kendaraan%20dengan%20rincian%20sbb%20%3A%20%0A%0AAtas%20Nama%20%3A%20%0ADari%20Perusahaan%2Finstansi%2Findividu%20%3A%0ANama%20Kendaraan%20%3A%20%0AJumlah%20kendaraan%20%3A%0ATanggal%20%26%20Bulan%20pemakaian%20%3A%0ALokasi%20Jemput%20%3A%0ATujuan%20%3A%0AWaktu%20Sewa%20%3A">Pesan
+                                Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -572,30 +619,97 @@
         <div class="container py-md-5">
             <h3 class="heading heading1 text-center mb-3 mb-sm-5">Komentar Para Pelanggan</h3>
             <div class="row">
-                <div class="slider-container">
-                    <div class="slider">
-                        @foreach ($review as $data)
-                            <div class="review col-lg-4 col-sm-6 test-info text-left mb-4">
-                                <p><span class="fa fa-quote-left"></span>{{ $data->comment }} <span
-                                        class="fa fa-quote-right"></span>
-                                </p>
-                                <h3 class="my-md-2 my-3 text-right">{{ $data->email }}</h3>
-                                <h3 class="my-md-2 my-3 text-right">{{ $data->name }}</h3>
+                <div class="container py-5">
+                    <div class="slider-wrapper position-relative">
+                        <button class="prev arrow left">&#10094;</button>
+
+                        <div class="slider-container overflow-hidden">
+                            <div class="slider-track d-flex">
+                                @foreach ($review as $data)
+                                <div class="review col-lg-4 col-sm-6 test-info text-left mb-4">
+                                    <p><span class="fa fa-quote-left"></span>{{ $data->comment }} <span
+                                            class="fa fa-quote-right"></span>
+                                    </p>
+                                    <h3 class="my-md-2 my-3 text-right">{{ $data->email }}</h3>
+                                    <h3 class="my-md-2 my-3 text-right">{{ $data->name }}</h3>
+                                </div>
+                                @endforeach
                             </div>
-                        @endforeach
+                        </div>
+
+                        <button class="next arrow right">&#10095;</button>
                     </div>
-                    <button class="prev"> <i class="fa fa-arrow-left"></i></button>
-                    <button class="next"><i class="fa fa-arrow-right"></i></button>
                 </div>
                 <div class="d-flex justify-content-center w-100 mt-3">
                     <a href="{{ route('review.create') }}" class="btn btn-light">Tambah Komentar</a>
                 </div>
-
             </div>
         </div>
     </section>
     <!--//testimonials -->
 
+
+    <script>
+        const track = document.querySelector(".slider-track");
+        const cards = document.querySelectorAll(".review");
+        const leftArrow = document.querySelector(".arrow.left");
+        const rightArrow = document.querySelector(".arrow.right");
+
+        let index = 0;
+
+        function getCardWidth() {
+            return cards[0].offsetWidth + 20; // include margin
+        }
+
+        function getVisibleCount() {
+            const containerWidth = document.querySelector(".slider-container").offsetWidth;
+            return Math.floor(containerWidth / getCardWidth());
+        }
+
+        function updateSlider() {
+            const cardWidth = getCardWidth();
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+        }
+
+        function showNext() {
+            const visibleCount = getVisibleCount();
+            if (index < cards.length - visibleCount) {
+                index++;
+            } else {
+                index = 0;
+            }
+            updateSlider();
+        }
+
+        function showPrev() {
+            if (index > 0) {
+                index--;
+            } else {
+                index = 0;
+            }
+            updateSlider();
+        }
+
+        rightArrow.addEventListener("click", () => {
+            showNext();
+            resetAutoScroll();
+        });
+
+        leftArrow.addEventListener("click", () => {
+            showPrev();
+            resetAutoScroll();
+        });
+
+        let autoScroll = setInterval(showNext, 3000);
+
+        function resetAutoScroll() {
+            clearInterval(autoScroll);
+            autoScroll = setInterval(showNext, 3000);
+        }
+
+        window.addEventListener("resize", updateSlider);
+        window.addEventListener("load", updateSlider);
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const slides = document.querySelector(".slides");
